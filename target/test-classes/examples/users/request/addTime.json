@@ -1,15 +1,12 @@
 {
+  "start": "2022-10-25T23:08:16Z",
+  "end": "2022-10-25T23:23:35Z",
 "description": "MasEntry",
 "tagIds": null,
 "userId": "633f5b7689bf9c24493ee39b",
 "billable": false,
 "taskId": null,
 "projectId":"633f68a76480480640550da7",
-"timeInterval": {
-"start": "2022-10-18T12:20:00Z",
-"end": "2022-10-18T110:20:00Z",
-"duration": "PT2H"
-},
 "workspaceId": "633f5b7689bf9c24493ee39d",
 "isLocked": false,
 "customFieldValues": [],

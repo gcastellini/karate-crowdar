@@ -16,7 +16,7 @@ Feature: Clockify Academy 2022
       | workspaceId              | projectId                | projectName |
       | 633f5b7689bf9c24493ee39d | 633f68a76480480640550da7 | Giuliana2   |
 
-@proyecto
+
   Scenario Outline: Eliminar Time Entry
     * def responseId = call read('classpath:examples/users/createTimeEntry.feature')
     * def idTimeEntry = responseId.id
@@ -30,3 +30,21 @@ Feature: Clockify Academy 2022
     Examples:
       | workspaceId              |
       | 633f5b7689bf9c24493ee39d |
+
+    @proyecto
+  Scenario Outline: Editar Time Entry
+    * def body = read('classpath:examples/users/request/addTime.json')
+    * set body.description = '<description>'
+    * def responseId = call read('classpath:examples/users/createTimeEntry.feature')
+    * def idTimeEntry = responseId.id
+    Given url urlBase
+    And path 'workspaces/<workspaceId>/time-entries', idTimeEntry
+    And header X-Api-Key = 'ZDg1ZGMxNzAtYzEwZi00Y2QyLTgzMzUtMjU5MzNmYmIxZGY1'
+    And header Content-type = 'application/json'
+    And request body
+    When method PUT
+    Then status 200
+
+    Examples:
+      | workspaceId              | description      |
+      | 633f5b7689bf9c24493ee39d | EditeunTimeEntry |
